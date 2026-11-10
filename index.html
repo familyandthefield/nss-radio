@@ -30,12 +30,12 @@
   <meta name="twitter:image" content="https://otty.online/logo.jpg">
   <meta name="twitter:image:alt" content="NSS Radio logo">
 
-  <link rel="icon" href="logo.jpg" type="image/jpeg">
-  <link rel="apple-touch-icon" href="logo.jpg">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://nssradio.live">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
@@ -161,17 +161,21 @@
       margin-bottom: 2rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 1.25rem;
+    }
+
+    .header-top {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.75rem;
     }
 
     .header-brand {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 0.75rem;
       min-width: 0;
-      flex: 1;
+      flex: 1 1 auto;
       text-decoration: none;
       color: inherit;
     }
@@ -186,16 +190,12 @@
       border: 1px solid var(--border);
     }
 
-    .logo-text {
-      min-width: 0;
-    }
-
     .logo {
       font-size: 1.15rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--accent);
-      margin: 0 0 0.2rem;
+      margin: 0;
       text-transform: uppercase;
       line-height: 1.2;
     }
@@ -211,15 +211,25 @@
       font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0.02em;
+      margin: 0.45rem 0 0 calc(32px + 0.75rem);
     }
 
     .site-nav {
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      flex-shrink: 0;
+      flex: 0 0 auto;
+      margin-left: auto;
       font-size: 0.68rem;
       letter-spacing: 0.03em;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .art-wrapper:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
     .site-nav a {
@@ -505,16 +515,37 @@
       flex: 1;
       -webkit-appearance: none;
       appearance: none;
+      height: 22px;
+      background: transparent;
+      border-radius: 0;
+      cursor: pointer;
+    }
+
+    .volume-slider::-webkit-slider-runnable-track {
       height: 2px;
       background: var(--border);
-      border-radius: 0;
-      outline: none;
     }
 
     .volume-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 10px;
       height: 10px;
+      margin-top: -4px;
+      border-radius: 1px;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    .volume-slider::-moz-range-track {
+      height: 2px;
+      background: var(--border);
+      border: none;
+    }
+
+    .volume-slider::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border: none;
       border-radius: 1px;
       background: var(--accent);
       cursor: pointer;
@@ -522,11 +553,9 @@
 
     .player-actions {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 0.35rem;
       margin-bottom: 0.55rem;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
     }
 
     .action-btn {
@@ -953,139 +982,6 @@
       flex-shrink: 0;
     }
 
-    .kofi-note {
-      display: none;
-    }
-
-    /* Social feeds (unused – kept for safety) */
-    .social-section {
-      margin-top: 1.5rem;
-    }
-
-    .social-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .social-item {
-      display: block;
-      padding: 0.55rem 0.65rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.15s;
-    }
-
-    .social-item:hover {
-      border-color: #3a3a3a;
-    }
-
-    .social-meta {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-      letter-spacing: 0.02em;
-    }
-
-    .social-text {
-      font-size: 0.78rem;
-      line-height: 1.4;
-      white-space: pre-wrap;
-      word-break: break-word;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .social-thumb {
-      width: 100%;
-      max-height: 160px;
-      object-fit: cover;
-      border-radius: 1px;
-      margin-top: 0.45rem;
-      border: 1px solid var(--border);
-    }
-
-    .social-empty {
-      text-align: left;
-      padding: 0.85rem 0.75rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-
-    .social-empty a,
-    .social-footer-link a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .social-empty a:hover,
-    .social-footer-link a:hover {
-      text-decoration: underline;
-    }
-
-    .social-footer-link {
-      margin-top: 0.75rem;
-      font-size: 0.7rem;
-    }
-
-    .social-profile {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      padding: 0.55rem 0.65rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      color: inherit;
-      margin-bottom: 0.5rem;
-      transition: border-color 0.15s;
-    }
-
-    .social-profile:hover {
-      border-color: var(--accent);
-    }
-
-    .social-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: var(--surface-2);
-      flex-shrink: 0;
-    }
-
-    .social-profile-name {
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    .social-profile-handle {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-    }
-
-    .x-timeline-wrap {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      background: var(--surface);
-      min-height: 200px;
-    }
-
-    .x-timeline-wrap iframe {
-      display: block !important;
-    }
-
     /* Footer */
     footer {
       text-align: left;
@@ -1151,6 +1047,7 @@
 
       .tagline {
         font-size: 0.68rem;
+        margin-left: calc(28px + 0.75rem);
       }
 
       .player-card {
@@ -1210,6 +1107,14 @@
         margin-bottom: 1.75rem;
       }
 
+      .site-nav {
+        flex: 1 0 100%;
+        margin-left: 0;
+        padding-left: calc(32px + 0.75rem);
+        justify-content: flex-start;
+        gap: 0.45rem;
+      }
+
       .player-card {
         padding: 1.35rem;
       }
@@ -1263,6 +1168,12 @@
       footer {
         margin-top: 2.25rem;
         font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .site-nav {
+        padding-left: calc(28px + 0.75rem);
       }
     }
 
@@ -1342,8 +1253,7 @@
       /* Hide secondary sections in very short landscape to keep focus on player */
       .history-section,
       .schedule-section,
-      .videos-section,
-      .social-section {
+      .videos-section {
         display: none;
       }
     }
@@ -1377,20 +1287,20 @@
 <body>
   <div class="container">
     <header>
-      <a class="header-brand" href="index.html">
-        <img class="logo-mark" src="logo.jpg" alt="NSS Radio" width="32" height="32">
-        <div class="logo-text">
+      <div class="header-top">
+        <a class="header-brand" href="index.html">
+          <img class="logo-mark" src="logo.jpg" alt="" width="32" height="32">
           <h1 class="logo" id="station-name">NSS Radio</h1>
-          <p class="tagline" id="station-desc">Marine moods from the Irish Sea · アイリッシュ海からのマリンムード</p>
-        </div>
-      </a>
-      <nav class="site-nav" aria-label="Site">
-        <a href="index.html" class="is-active">listen</a>
-        <span class="nav-sep">/</span>
-        <a href="about.html">about</a>
-        <span class="nav-sep">/</span>
-        <a href="contact.html">contact</a>
-      </nav>
+        </a>
+        <nav class="site-nav" aria-label="Site">
+          <a href="index.html" class="is-active" aria-current="page">listen</a>
+          <span class="nav-sep" aria-hidden="true">/</span>
+          <a href="about.html">about</a>
+          <span class="nav-sep" aria-hidden="true">/</span>
+          <a href="contact.html">contact</a>
+        </nav>
+      </div>
+      <p class="tagline" id="station-desc">Marine moods from the Irish Sea · アイリッシュ海からのマリンムード</p>
     </header>
 
     <section class="tip-section" id="tip-section">
@@ -1407,9 +1317,9 @@
     </section>
 
     <div class="player-card" id="player-card">
-      <div class="art-wrapper paused" id="art-wrapper" title="Play / Pause">
+      <div class="art-wrapper paused" id="art-wrapper" title="Play">
         <div class="art-placeholder" id="art-placeholder">♪</div>
-        <img id="album-art" src="" alt="Album art" style="display:none;">
+        <img id="album-art" alt="" style="display:none;">
         <div class="play-overlay" id="play-overlay" aria-hidden="true">
           <div class="play-btn" id="play-btn">
             <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -1417,14 +1327,14 @@
         </div>
       </div>
 
-      <div class="now-playing loading" id="now-playing">
+      <div class="now-playing loading" id="now-playing" aria-live="polite">
         <div class="song-title" id="song-title">Loading…</div>
         <div class="song-artist" id="song-artist">Please wait</div>
         <div class="live-badge" id="live-badge" style="display:none;">On air</div>
       </div>
 
       <div class="progress-section">
-        <div class="progress-bar">
+        <div class="progress-bar" id="progress-bar" role="progressbar" aria-label="Track progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="progress-fill" id="progress-fill"></div>
         </div>
         <div class="time-row">
@@ -1434,53 +1344,50 @@
       </div>
 
       <div class="controls">
-        <button class="control-btn" id="prev-btn" title="Previous" aria-label="Previous" style="visibility:hidden;">
+        <button class="control-btn" id="prev-btn" title="Previous" aria-hidden="true" tabindex="-1" style="visibility:hidden;">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
         </button>
-        <button class="main-play control-btn" id="main-play" aria-label="Play / Pause">
-          <svg id="main-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <button class="main-play control-btn" id="main-play" type="button" aria-label="Play" aria-pressed="false">
+          <svg id="main-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </button>
-        <button class="control-btn" id="next-btn" title="Next" aria-label="Next" style="visibility:hidden;">
+        <button class="control-btn" id="next-btn" title="Next" aria-hidden="true" tabindex="-1" style="visibility:hidden;">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
         </button>
       </div>
 
       <div class="volume-row">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
         <input type="range" class="volume-slider" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
       </div>
 
       <div class="player-actions">
-        <a class="action-btn action-find" id="spotify-btn" href="#" target="_blank" rel="noopener" title="Find on Spotify" hidden>
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        <a class="action-btn action-find" id="spotify-btn" href="#" target="_blank" rel="noopener" title="Find on Spotify" aria-label="Find on Spotify" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           <span class="action-label">Spotify</span>
         </a>
-        <a class="action-btn action-find" id="apple-music-btn" href="#" target="_blank" rel="noopener" title="Find on Apple Music" hidden>
-          <svg viewBox="0 0 24 24"><path d="M23.997 6.124c0-.738-.065-1.47-.24-2.19-.317-1.31-1.016-2.37-2.207-3.175C21.037.254 20.35.081 19.583 0h-3.29v11.185l-4.328-1.383V.002H8.166c-.259.03-.516.07-.772.128-1.42.348-2.536 1.15-3.285 2.385-.49.807-.75 1.686-.794 2.638C3.29 5.8 3.28 6.45 3.28 7.1v9.434c.01.46.042.918.124 1.37.25 1.43.95 2.57 2.11 3.4.85.61 1.8.95 2.85 1.04.27.02.54.03.81.03h1.29v-6.81l4.33 1.39v5.42h3.26c.77-.04 1.5-.22 2.18-.58 1.2-.63 2-1.63 2.4-2.95.14-.47.21-.95.24-1.44.01-.18.01-.36.01-.54V6.124z"/></svg>
+        <a class="action-btn action-find" id="apple-music-btn" href="#" target="_blank" rel="noopener" title="Find on Apple Music" aria-label="Find on Apple Music" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.997 6.124c0-.738-.065-1.47-.24-2.19-.317-1.31-1.016-2.37-2.207-3.175C21.037.254 20.35.081 19.583 0h-3.29v11.185l-4.328-1.383V.002H8.166c-.259.03-.516.07-.772.128-1.42.348-2.536 1.15-3.285 2.385-.49.807-.75 1.686-.794 2.638C3.29 5.8 3.28 6.45 3.28 7.1v9.434c.01.46.042.918.124 1.37.25 1.43.95 2.57 2.11 3.4.85.61 1.8.95 2.85 1.04.27.02.54.03.81.03h1.29v-6.81l4.33 1.39v5.42h3.26c.77-.04 1.5-.22 2.18-.58 1.2-.63 2-1.63 2.4-2.95.14-.47.21-.95.24-1.44.01-.18.01-.36.01-.54V6.124z"/></svg>
           <span class="action-label">Apple Music</span>
         </a>
-        <button type="button" class="action-btn" id="share-btn" title="Share this track">
-          <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+        <button type="button" class="action-btn" id="share-btn" title="Share this track" aria-label="Share this track">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
           <span class="action-label">Share</span>
         </button>
-        <button type="button" class="action-btn" id="copy-stream-btn" title="Copy stream URL">
-          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        <button type="button" class="action-btn" id="copy-stream-btn" title="Copy stream URL" aria-label="Copy stream URL">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
           <span class="action-label">Copy stream</span>
         </button>
-        <a class="action-btn" id="fallback-player-btn" href="https://nssradio.live/public/corkwing_fm" target="_blank" rel="noopener" title="Open backup player">
-          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        <a class="action-btn" id="fallback-player-btn" href="https://nssradio.live/public/corkwing_fm" target="_blank" rel="noopener" title="Open backup player" aria-label="Open backup player">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
           <span class="action-label">Backup</span>
         </a>
       </div>
-      <div class="stream-status" id="stream-status"></div>
+      <div class="stream-status" id="stream-status" aria-live="polite"></div>
 
       <div class="stats">
         <div class="stat">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
           <span><strong id="listeners">–</strong> listeners</span>
-        </div>
-        <div class="stat" id="bitrate-stat" style="display:none;">
-          <span><strong id="bitrate">–</strong> kbps</span>
         </div>
       </div>
     </div>
@@ -1488,7 +1395,7 @@
     <section class="history-section" id="history-section" style="display:none;">
       <h2 class="section-title">history <span class="jp">履歴</span></h2>
       <ul class="history-list" id="history-list"></ul>
-      <button type="button" class="history-more" id="history-more">show more</button>
+      <button type="button" class="history-more" id="history-more" aria-expanded="false">show more</button>
     </section>
 
     <section class="schedule-section is-empty" id="schedule-section">
@@ -1581,7 +1488,7 @@
     const timeRemaining = document.getElementById('time-remaining');
     const listenersEl = document.getElementById('listeners');
     const stationNameEl = document.getElementById('station-name');
-    const stationDescEl = document.getElementById('station-desc');
+    const progressBar = document.getElementById('progress-bar');
     const historySection = document.getElementById('history-section');
     const historyList = document.getElementById('history-list');
     const volumeSlider = document.getElementById('volume');
@@ -1607,13 +1514,32 @@
       playIcon.innerHTML = playing ? PAUSE_SVG : PLAY_SVG;
       mainPlayIcon.innerHTML = playing ? PAUSE_SVG : PLAY_SVG;
       playBtn.classList.toggle('playing', playing);
+      const label = playing ? 'Pause' : 'Play';
+      mainPlay.setAttribute('aria-label', label);
+      mainPlay.setAttribute('aria-pressed', playing ? 'true' : 'false');
+      artWrapper.title = label;
     }
 
     function formatTime(seconds) {
       if (!seconds || isNaN(seconds) || seconds < 0) return '0:00';
-      const m = Math.floor(seconds / 60);
-      const s = Math.floor(seconds % 60);
+      const total = Math.floor(seconds);
+      const s = total % 60;
+      const m = Math.floor(total / 60);
+      if (m >= 60) {
+        const h = Math.floor(m / 60);
+        return `${h}:${(m % 60).toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      }
       return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (ch) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[ch]));
     }
 
     function updateProgress() {
@@ -1635,6 +1561,7 @@
       progressFill.style.width = `${percent}%`;
       timeElapsed.textContent = formatTime(elapsed);
       timeRemaining.textContent = formatTime(remaining);
+      if (progressBar) progressBar.setAttribute('aria-valuenow', String(Math.round(percent)));
     }
 
     function updateUI(data) {
@@ -1658,12 +1585,13 @@
         // Prefer track art; when live, streamer art is a good fallback
         // Avoid flashing placeholder when the same art URL is repeated
         const artUrl = song.art || (isLive && data.live.art) || '';
-        setAlbumArt(artUrl);
+        const artLabel = [song.title, song.artist].filter(Boolean).join(' — ');
+        setAlbumArt(artUrl, artLabel);
         updateFindLinks(song.title, song.artist);
       } else if (isLive) {
         songTitle.textContent = data.live.streamer_name || 'Live';
         songArtist.textContent = 'On air';
-        setAlbumArt(data.live.art || '');
+        setAlbumArt(data.live.art || '', data.live.streamer_name || 'Live');
         updateFindLinks('', '');
       } else {
         updateFindLinks('', '');
@@ -1714,31 +1642,52 @@
       if (spotifyBtn) {
         spotifyBtn.href = `https://open.spotify.com/search/${enc}`;
         spotifyBtn.hidden = false;
-        spotifyBtn.title = `Find “${q}” on Spotify`;
+        const label = `Find “${q}” on Spotify`;
+        spotifyBtn.title = label;
+        spotifyBtn.setAttribute('aria-label', label);
       }
       if (appleBtn) {
         appleBtn.href = `https://music.apple.com/search?term=${enc}`;
         appleBtn.hidden = false;
-        appleBtn.title = `Find “${q}” on Apple Music`;
+        const label = `Find “${q}” on Apple Music`;
+        appleBtn.title = label;
+        appleBtn.setAttribute('aria-label', label);
       }
     }
 
     let lastArtUrl = '';
-    function setAlbumArt(artUrl) {
+    let failedArtUrl = '';
+    function setAlbumArt(artUrl, label) {
+      const alt = label || 'Album artwork';
+      if (artUrl && artUrl === failedArtUrl) artUrl = '';
       if (artUrl) {
         if (artUrl !== lastArtUrl) {
           lastArtUrl = artUrl;
+          albumArt.alt = alt;
           albumArt.src = artUrl;
+        } else if (albumArt.alt !== alt) {
+          albumArt.alt = alt;
         }
         albumArt.style.display = 'block';
         artPlaceholder.style.display = 'none';
       } else {
         lastArtUrl = '';
         albumArt.removeAttribute('src');
+        albumArt.alt = '';
         albumArt.style.display = 'none';
         artPlaceholder.style.display = 'flex';
       }
     }
+
+    albumArt.addEventListener('error', () => {
+      if (!albumArt.getAttribute('src')) return;
+      failedArtUrl = lastArtUrl;
+      lastArtUrl = '';
+      albumArt.removeAttribute('src');
+      albumArt.alt = '';
+      albumArt.style.display = 'none';
+      artPlaceholder.style.display = 'flex';
+    });
 
     function renderHistory(items) {
       const moreBtn = document.getElementById('history-more');
@@ -1755,13 +1704,16 @@
       historySection.style.display = 'block';
       historyList.innerHTML = list.map((item, i) => {
         const s = item.song || {};
-        const title = (s.title || 'Unknown').replace(/</g, '&lt;');
-        const artist = (s.artist || '').replace(/</g, '&lt;');
-        const art = (s.art || '').replace(/"/g, '&quot;');
+        const title = escapeHtml(s.title || 'Unknown');
+        const artist = escapeHtml(s.artist || '');
+        const art = escapeHtml(s.art || '');
         const collapsed = i >= visible ? ' is-collapsed' : '';
+        const artHtml = art
+          ? `<img class="history-art" src="${art}" alt="" loading="lazy" onerror="this.style.display='none'">`
+          : `<div class="history-art" aria-hidden="true"></div>`;
         return `
           <li class="history-item${collapsed}">
-            <img class="history-art" src="${art}" alt="" loading="lazy" onerror="this.style.display='none'">
+            ${artHtml}
             <div class="history-info">
               <div class="history-title">${title}</div>
               <div class="history-artist">${artist}</div>
@@ -1773,10 +1725,12 @@
         if (list.length > visible) {
           moreBtn.classList.add('is-visible');
           moreBtn.textContent = wasExpanded ? 'show less' : `show more (${list.length - visible})`;
+          moreBtn.setAttribute('aria-expanded', wasExpanded ? 'true' : 'false');
           if (wasExpanded) historySection.classList.add('is-expanded');
         } else {
           moreBtn.classList.remove('is-visible');
           historySection.classList.remove('is-expanded');
+          moreBtn.setAttribute('aria-expanded', 'false');
         }
       }
     }
@@ -2058,7 +2012,10 @@
       const btn = document.getElementById('history-more');
       const expanded = historySection.classList.toggle('is-expanded');
       const hidden = historyList.querySelectorAll('.history-item.is-collapsed').length;
-      if (btn) btn.textContent = expanded ? 'show less' : `show more (${hidden})`;
+      if (btn) {
+        btn.textContent = expanded ? 'show less' : `show more (${hidden})`;
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      }
     });
 
     // Smooth progress updates
@@ -2149,12 +2106,14 @@
           const timeStr = it.end
             ? `${formatTimeOnly(it.start)}–${formatTimeOnly(it.end)}`
             : formatTimeOnly(it.start);
+          const title = escapeHtml(it.title);
+          const desc = escapeHtml(it.desc);
           html += `
             <li class="schedule-item">
-              <div class="schedule-time">${timeStr}</div>
+              <div class="schedule-time">${escapeHtml(timeStr)}</div>
               <div class="schedule-info">
-                <div class="schedule-title">${it.title}</div>
-                ${it.desc ? `<div class="schedule-desc">${it.desc}</div>` : ''}
+                <div class="schedule-title">${title}</div>
+                ${desc ? `<div class="schedule-desc">${desc}</div>` : ''}
               </div>
             </li>`;
         });
@@ -2170,8 +2129,7 @@
         // Try common station schedule endpoints
         const endpoints = [
           `${CONFIG.baseUrl}/api/station/${CONFIG.stationShortcode}/schedule`,
-          `${CONFIG.baseUrl}/api/station/1/schedule`,
-          `${CONFIG.baseUrl}/api/station/corkwing_fm/schedule`
+          `${CONFIG.baseUrl}/api/station/1/schedule`
         ];
 
         let data = null;
@@ -2228,11 +2186,11 @@
       });
 
       const html = sorted.slice(0, CONFIG.youtubeMaxVideos).map(v => `
-        <a class="video-card" href="${v.link}" target="_blank" rel="noopener">
-          <img class="video-thumb" src="${v.thumbnail}" alt="" loading="lazy" onerror="this.style.opacity='0.3'">
+        <a class="video-card" href="${escapeHtml(v.link)}" target="_blank" rel="noopener">
+          <img class="video-thumb" src="${escapeHtml(v.thumbnail)}" alt="" loading="lazy" onerror="this.style.opacity='0.3'">
           <div class="video-info">
-            <div class="video-title">${v.title}</div>
-            <div class="video-date">${formatVideoDate(v.published)}</div>
+            <div class="video-title">${escapeHtml(v.title)}</div>
+            <div class="video-date">${escapeHtml(formatVideoDate(v.published))}</div>
           </div>
         </a>
       `).join('');
@@ -2243,12 +2201,13 @@
     async function fetchYouTubeVideos() {
       // Official channel feed = uploads in reverse chronological order (latest first)
       const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CONFIG.youtubeChannelId}`;
-      const bust = '_=' + Date.now();
-      // Public RSS→JSON proxies (tried in order)
+      const rssEncoded = encodeURIComponent(rssUrl);
+      // Stable URLs so the public RSS cache can be reused. A unique query
+      // on every visit was tripping the proxy's rate limit.
       const proxies = [
-        `https://rss2json.com/api.json?rss_url=${encodeURIComponent(rssUrl)}&${bust}`,
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}&${bust}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(rssUrl)}`
+        `https://api.rss2json.com/v1/api.json?rss_url=${rssEncoded}`,
+        `https://api.allorigins.win/raw?url=${rssEncoded}`,
+        `https://api.codetabs.com/v1/proxy?quest=${rssEncoded}`
       ];
 
       function videoIdFrom(str) {
@@ -2259,7 +2218,7 @@
 
       for (const proxyUrl of proxies) {
         try {
-          const res = await fetch(proxyUrl, { cache: 'no-store' });
+          const res = await fetch(proxyUrl);
           if (!res.ok) continue;
           const textOrJson = await res.text();
 
